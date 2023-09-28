@@ -161,3 +161,158 @@ else {
      console.log("U can vote")
 }
 */
+
+/* 2023-09-28 */
+/* Repetition */
+
+//Enkel kommentar
+/* Multirads kommentar */
+/* let string = ''"" */
+/* var, const, let
+const är konstant
+*/
+
+/* let firstName = "Sträng"
+let age = 18;
+let boolean = true;
+let curious = prompt('Hej vad heter du')
+let ajhskfhjsa; */
+
+/* fyra räknesätten */
+/* +, -, *, / */
+/* age++ age--*/
+
+/* let lastName = 'Carlsson'
+console.log('Hello ' + 'World! ' + 'Richard ' + lastName)
+console.log(`Hello World! Richard ${lastName}`)
+ */
+
+/* Logiska operatörer */
+//&& "och/and"
+//|| "eller/or"
+//== Loose quality operator, kollar endast värdet i en jämförelse
+//=== Strict operator, kollar både värde och datatyp i jämförelsen
+//1<2
+//1>2
+//1>=2
+//1<=2
+
+// (condition, vilka villkor ska uppfyllas?) ? true : false
+
+/* 2023-09-28 */
+/* Nya moduler */
+/* If else statements */
+/* Syntax för it statement */
+
+/* if (condition som antingen ska vara true eller false) {
+    block av kod som ska genomföras om något blir true
+}
+else{
+    block av kod som genomförs om allt ovan blir false
+}
+*/
+/* Exempel if else statement */
+/* Nedan jämför vad klockan faktiskt är och beroende på true eller false
+så får man en hälsning baserat på detta */
+/* const hour = new Date().getHours()
+let greeting
+
+if (hour < 18) {
+    greeting = 'Good Day'
+} else {
+    greeting = 'Good Evening'
+} */
+
+/* Exempel if elseif else statement */
+/* Syntax */
+/* if (condition){
+    block som genomförs
+} else if (condition 2){
+    block som genomföst
+}else{
+    block som genomförs om båda ovan är false
+}
+*/
+
+/* Example */
+/* const time = 22
+let greeting
+
+if (time < 10) {
+    greeting = 'Good Morning'
+} else if (time < 20) {
+    greeting = 'Good Day'
+} else {
+    greeting = 'Good evening'
+}
+ */
+/* console.log(greeting)
+ */
+/* Switch statements */
+/* Syntax */
+/*
+switch(expression){
+    case x:
+        Block 1 genomförs
+        break;
+    case y:
+        Block 2 genomförs
+        break;
+    default:
+        Detta blocket körs om inget utav ovan cases matchar expression
+}
+
+*/
+/* Example */
+/* let day
+switch (new Date().getDay()) {
+    case 0:
+        day = 'Sunday'
+        break
+    case 1:
+        day = 'Monday'
+        break
+    case 2:
+        day = 'Tuesday'
+        break
+    case 3:
+        day = 'Wednesday'
+        break
+    case 4:
+        day = 'Thursday'
+        break
+    case 5:
+        day = 'Friday'
+        break
+    case 6:
+        day = 'Saturday'
+        break
+}
+console.log(day) */
+/* While, while..do */
+/* While*/
+/* let count = 0
+
+while (count < 5) {
+    console.log('Count is ' + count)
+    count++
+} */
+
+/* While..do loop */
+/* let count = 0
+
+do {
+    console.log('count is: ' + count)
+    count++
+} while (count < 5)
+ */
+/* For Loops */
+/* Syntax */
+/*
+for(expression1; expression2; number++){
+    Block som körs med uppräkning av 1
+}
+*/
+/* for (let number = 0; number < 5; number++) {
+    console.log('count is: ' + number)
+} */
