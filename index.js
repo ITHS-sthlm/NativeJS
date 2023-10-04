@@ -405,3 +405,13 @@ product.candy = 'polkagris'
 product.price = 699 */
 /* console.log(product)
  */
+
+let person = {
+    name: 'Alice',
+    age: 30,
+    city: 'New York'
+}
+
+for (let key in person) {
+    console.log(key + ': ' + person[key])
+}
