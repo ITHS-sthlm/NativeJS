@@ -316,3 +316,92 @@ for(expression1; expression2; number++){
 /* for (let number = 0; number < 5; number++) {
     console.log('count is: ' + number)
 } */
+
+/* 2023-10-03 */
+
+/* Arrays */
+
+//tom array
+/* let a = []
+console.log(a) */
+
+//En Array med flera datatyper
+/* let b = ['Richard', 43, true]
+ */
+//Lägga till ett värde i arrayen ovanför
+/* b.push(2)
+ */
+//Ta bort värde från array
+/* b.pop()
+ */
+//Plocka ut värden från en array, och MELLAN index
+/* console.log(b.slice(0, 3))
+ */
+
+//Plocka ut första värdet ur vår array
+/* let firstValue = b.shift()
+console.log(b) */
+
+//Lägga till ett värde i början av en array
+/* b.unshift('Det regnar')
+ */
+//Loopa igenom array
+//Loopa med for loop
+
+/* for (let i = 0; i < b.length; i++) {
+    console.log(b[i])
+}
+ */
+
+//Loopa med en while loop
+/* let x = 0
+
+while (x < b.length) {
+    console.log(b[x])
+    x++
+} */
+
+/* let b = ['Richard', 43, true]
+ */
+//Komma åt ett visst värde i detta fallet index 2 ur b arrayen
+/* console.log(b[2])
+ */
+//Byta ut ett värde som finns i b arrayen, i detta fallet ändrade vi index nr 2
+/* b[1] = 44
+console.log(b) */
+
+//Varför vi arbetar med fasta värden i arrayer
+//Vi inhämtar ibland värden från andra platser och vill kunna arbeta med dessa
+/* let firstName = 'Alice'
+let age = 34
+let city = 'Stockholm' */
+
+/* let personInfo1 = [firstName, age, city] */
+
+//Logga ut eller använda infon på ett bra sätt via en array
+/* console.log(`Hej mitt namn är ${personInfo1[0]}`)
+console.log(`och jag är ${personInfo1[1]} gammal`) */
+
+//Variabeltyper och arrayer!!
+//En array med const
+/* const x = [1, 2, 3, 4]
+ */ /* array = 'Hej'
+ */
+
+/* Objekt */
+//Skapar ett objekt med flera NYCKLAR och VÄRDEN
+/* let product = {
+    candy: 'chokladkaka',
+    price: 299
+} */
+
+/* let p = 'price', försök gärna att bryta ut nycklarna till nya variabler
+
+ */
+/* product['price'] = 399
+ */
+/*
+product.candy = 'polkagris'
+product.price = 699 */
+/* console.log(product)
+ */
