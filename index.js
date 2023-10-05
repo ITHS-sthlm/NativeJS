@@ -406,6 +406,7 @@ product.price = 699 */
 /* console.log(product)
  */
 
+/*
 let person = {
     name: 'Alice',
     age: 30,
@@ -414,4 +415,75 @@ let person = {
 
 for (let key in person) {
     console.log(key + ': ' + person[key])
+}
+ */
+
+/* 2023-10-05 */
+/* Det är möjligt att ha arrays i arrays, objekt i objekt,
+objekt i arrays, och arrays i objekt
+Det är möjligt att loopa igenom en nästlad array,
+alltså en array i en array eller i ett objekt */
+
+/* Tid vid inspelning 01:29  */
+
+//Array i en array
+let a = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+/* console.log(a[1])//[4,5,6]
+console.log(a[1][1])//5
+ */
+
+//Loopning av array i en array, nästlad array
+//Yttre loop för att iterera över den yttre arrayen
+/* for (let i = 0; i < a.length; i++) {
+    //Inre loop för att iterera över varje element i den inre arrayen
+    for (let j = 0; j < a[i].length; j++) {
+        console.log('Loop array i en array: ' + a[i][j])
+    }
+}
+ */
+
+//Objekt i objekt, (glöm ej nycklar och värden)
+/* let o = {
+    a: { a: 'richard', b: 45 },
+    b: { c: 34, d: 78 },
+    c: { e: 999, f: 89908 }
+}
+
+console.log(o.b.d)
+ */
+
+let cars = {
+    audi: { model: 'a4', price: 199000, condition: 'bad' },
+    audi2: { model: 'a6', price: 299000, condition: 'awful' },
+    renault: { model: 'megane', price: 199000, condition: 'bad' },
+    renault2: { model: 'clio', price: 199000, condition: 'bad' }
+}
+
+/* console.log(cars.renault2.model) */
+
+//Loppa igenom objektet cars med for...in loop
+//hasOwnproperty används för at kontrollera om objektet har en specifik
+//egenskap (en nyckel) som är direkt knutet till objektet
+//Skapar en variabel som får heta carName för att hantera nycklarna och komma åt
+//varje modell
+//Nästlat objekt, glöm ej att lägga i samma loop
+for (let carName in cars) {
+    if (cars.hasOwnProperty(carName)) {
+        console.log('Bilnamn ', carName)
+    }
+    //Skapar en variabel för att komma åt varje bil, komma åt i det inre objektet
+    let car = cars[carName]
+
+    //Loppa igenom det inre egenskaperna i det inre objektet och i detta fallet
+    //så kallar vi det nycklarna denna gången för prop (kan heta vadsomhelst)
+    for (let prop in car) {
+        if (car.hasOwnProperty(prop)) {
+            console.log(prop + ':', car[prop])
+        }
+    }
 }
