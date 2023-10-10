@@ -427,11 +427,11 @@ alltså en array i en array eller i ett objekt */
 /* Tid vid inspelning 01:29  */
 
 //Array i en array
-let a = [
+/* let a = [
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9]
-]
+] */
 
 /* console.log(a[1])//[4,5,6]
 console.log(a[1][1])//5
@@ -457,13 +457,13 @@ console.log(a[1][1])//5
 console.log(o.b.d)
  */
 
-let cars = {
+/* let cars = {
     audi: { model: 'a4', price: 199000, condition: 'bad' },
     audi2: { model: 'a6', price: 299000, condition: 'awful' },
     renault: { model: 'megane', price: 199000, condition: 'bad' },
     renault2: { model: 'clio', price: 199000, condition: 'bad' }
 }
-
+ */
 /* console.log(cars.renault2.model) */
 
 //Loppa igenom objektet cars med for...in loop
@@ -472,7 +472,7 @@ let cars = {
 //Skapar en variabel som får heta carName för att hantera nycklarna och komma åt
 //varje modell
 //Nästlat objekt, glöm ej att lägga i samma loop
-for (let carName in cars) {
+/* for (let carName in cars) {
     if (cars.hasOwnProperty(carName)) {
         console.log('Bilnamn ', carName)
     }
@@ -487,3 +487,146 @@ for (let carName in cars) {
         }
     }
 }
+ */
+
+//Funktioner
+//Funktioner är precis som variabler en behåller men variabler lagrar värden
+//och funktioner lagrar kod
+//Dom är till för att utföra uppgifter åt oss
+
+const firstName = 'Richard';
+
+//Funktionsdeklaration är global kallas global scope, den nås överallt inom er kod i er fil
+// syntax function valfritt namn () {koden}
+
+/* function logg() {
+    console.log('Detta är en funktionsdeklaration');
+}
+
+//Invoke, anropa funktionen
+logg(); */
+
+//Parameter och argument (parameter tar emot värden utifrån)
+//argument skickas in i parametern
+/* function add(num1, num2) {
+    console.log(num1 + num2);
+}
+
+add(1, 2); */
+//Tänk på att variabler som skapas inom en funktion kan ej nås utifrån
+//men variabler som ligger i global scope (hoisting) kan nås in i funktioner
+/* function logg(a) {
+    const lastName = 'Carlsson';
+    console.log(firstName);
+}
+
+logg(); */
+
+//Vi kan ej anropa en function expression ovanifrån logg();
+
+/* let logg = function () {
+    console.log('Detta är en function expression');
+};
+
+//Vi måste kalla på den nedanför vår deklarerade
+logg();
+ */
+
+/* let logg = function (a, b) {
+    console.log(a + b);
+};
+
+//Vi måste kalla på den nedanför vår deklarerade
+logg(5, 5);
+ */
+
+//En funktion som tar in flera datatyper
+/* let names = function (name, time) {
+    console.log(`Hej ${name} klockan är ${time}`);
+};
+
+names('Richard', 10.39); */
+
+//Skapar default eller fallback värden för att undvika
+//undefined
+//Ibland kan det vara så att värdena inte är av typen any eller
+//vilken datatyp somhelst så är det också bra att ange
+//något förutbestämt värde
+/* let names = function (name = '', time = null) {
+    console.log(`Hej ${name} klockan är ${time}`);
+};
+
+names(); */
+
+//Return
+//Vi vill returnera värden från våra funktioner ut i det
+//globala scopet
+//Vi vill även kunna arbeta med värden som beräknats av
+//funktioner
+
+//Expempel på en funktion som räknar ut radius av ett tal och
+//returnerar det och hur vi sedan arbetar med det värdet
+
+/* const calcArea = function (radius) {
+    return 3.14 * radius ** 2;
+};
+ */
+//En funktion som producerar ett värde och vi använder return, då
+//kan vi INTE anropa på vanligt sätt
+/* const logg = function () {
+    return 'hej';
+};
+ */
+//Vanligt anrop som nedan går ej när vi har return
+//logg();
+
+//Detta går inte att göra
+//calcArea(5);
+//Om vi vill kunna arbeta med returnerade värden från funktioner
+//så måste vi lagra det i en variabel
+
+/* let area = calcArea(6);  */ //Om vi ej anger ett argument här kommer
+//det bli null, NaN osv för vi förväntar ett värde
+//när vi har lagrat vår retur i en variabel så kan vi sedan
+//logga ut den
+//console.log(area);
+
+//Här skapar vi en ny funktion som använder värdet (return) som vi
+//fick på förra funktionen
+
+/* const areaMessage = function (area) {
+    if (area === 78.5) {
+        return area + 10;
+    } else {
+        return `Arean är : ${area}`;
+    }
+}; */
+
+//skapar en variabel för att ta emot return från funktionen
+//'areaMessage', därefter skickar vi värdet vidare till vår
+//parameter nedanför
+/* let message = areaMessage(area);
+//Sedan loggar vi ut det nedan
+console.log(message);
+ */
+
+//Arrow funktioner
+//Ger kortare kod och är till för att returnera värden
+//Kom med senaste versionen av Javascript även kallat ES6
+/* const calcArea = (radius) => {
+    return 3.14 * radius ** 2;
+};
+  */
+//Går att göra änu kortare pga att vi endast har en enklare
+//funktion med en retur
+
+//const calcArea = (radius) => 3.14 * radius ** 2;
+
+/* const areaMessage = (area) => {
+    if (area === 78.5) {
+        area + 10;
+    } else {
+        `Arean är : ${area}`;
+    }
+};
+ */
