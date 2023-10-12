@@ -60,7 +60,7 @@ function addItemToCart(name, price) {
 
 //Vi arbetar med event listener för att "lyssna" på förändringar
 //I vårt fall så vill vi "lyssna" på om någon trycker på knappen och
-//om så är fallet så ska vi köra displayCart()
+//om så är fallet så ska vi lägga till
 
 addItemButton.addEventListener('click', () => {
     //Vi vill få in name och price från inputfälten
