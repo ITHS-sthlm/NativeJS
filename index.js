@@ -630,3 +630,101 @@ console.log(message);
     }
 };
  */
+
+/* The map() function is a powerful tool for transforming data in an
+array without modifying an existing array, common used to manipulate
+existing data */
+//Original array
+/* const numbers = [1, 2, 6, 8, 9];
+
+//Using map function to double each number in the existing array
+const doubleNumbers = numbers.map(function (number) {
+    return number * 2;
+});
+
+console.log(doubleNumbers);
+ */
+/* find(), är bra att använda när ni ska söka efter specifika element i en
+array
+Om vår find funktion ej hittar det vi söker efter kommer det att returneras
+som undefiend */
+
+/* const products = [
+    { id: 1, name: 'Laptop', price: 8990 },
+    { id: 2, name: 'Banan', price: 5 },
+    { id: 3, name: 'Zoega', price: 19 }
+];
+ */
+//productToFind är skapad för att kunna arbeta med även i andra avseénden än
+//just i vår find funktion nedan
+//Kan även vara så att varibeln är kopplad till en input i ett formulär
+/* const productToFind = 'Zoega'; */
+
+//Vår find funktionalitet nedan har vi också lagt i en variabel, pga att att vi även
+//här kanske behöver arbeta med den i annat avseénde men i vårt fall så arbetar
+//vi med den nedan för att göra en if sats som utesluter att man söker efter något
+//som ej finns och i sådana fall kan meddela besökaren att sökningen ej gick igenom
+/* const foundProduct = products.find((product) => product.name === productToFind);
+
+if (foundProduct) {
+    console.log(
+        `Hittad produkt: ${foundProduct.name}, Pris: ${foundProduct.price} Kr id: ${foundProduct.id}`
+    );
+} else {
+    console.log(`Produkten '${productToFind}' hittades inte`);
+}
+ */
+
+//Foreach, är utmärkt för att få ut värdena i arrayer
+/* const colors = [1, 2, 3, 4];
+ */
+//Använder nedan forEach() för att iterera genom en befintlig array
+//Observera att funktioner med högre ordning körs direkt
+/* colors.forEach(function (color) {
+    console.log(color + 1);
+});
+ */
+
+//Här är ett exempel där vi både använder map() och forEach() för att arbeta
+//med array eller objekt eller objekt i array
+/* const products = [
+    { id: 1, name: 'Laptop', price: 8990 },
+    { id: 2, name: 'Banan', price: 5 },
+    { id: 3, name: 'Zoega', price: 19 }
+];
+
+//Använder map för att returnera ut all information i arrayen ovanför
+const productInfo = products.map(function (product) {
+    //return `Produkt: ${product.name + ' apa'} Pris: ${product.price}`;
+    //return `<li>${product.name}</li>`
+});
+
+//Loggar ut varje produkt med forEach
+productInfo.forEach(function (info) {
+    console.log(info);
+});
+ */
+
+//filter() är lik map så tillvida att den skapar en ny array (i bakgrunden)
+//där den sedan kan filtrera ut olika värden
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+//Använder filter för att få ut specifik information som önskas
+const evenNumbers = numbers.filter(function (number) {
+    return number % 2 === 0; //Ternary operator eller en if sats
+});
+
+console.log(evenNumbers);
+
+/* Exempel på varför det är smidigt att använda färdiga funktioner i javascript
+och få kod kortare
+let n = 7;
+if (n % 2 === 0) {
+  console.log(n + " is even");
+} else {
+  console.log(n + " is odd");
+}
+
+*/
+
+//Använd ovan filter funktionalitet för att söka efter strängvärde
