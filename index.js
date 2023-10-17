@@ -707,14 +707,14 @@ productInfo.forEach(function (info) {
 
 //filter() är lik map så tillvida att den skapar en ny array (i bakgrunden)
 //där den sedan kan filtrera ut olika värden
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+/* const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 //Använder filter för att få ut specifik information som önskas
 const evenNumbers = numbers.filter(function (number) {
     return number % 2 === 0; //Ternary operator eller en if sats
 });
 
-console.log(evenNumbers);
+console.log(evenNumbers); */
 
 /* Exempel på varför det är smidigt att använda färdiga funktioner i javascript
 och få kod kortare
@@ -728,3 +728,109 @@ if (n % 2 === 0) {
 */
 
 //Använd ovan filter funktionalitet för att söka efter strängvärde
+
+//
+/* let person = {
+    namn: 'Richard',
+    age: 18
+};
+//stringify, gör om till strängar
+let jsonSträng = JSON.stringify(person);
+console.log(jsonSträng);
+
+//parse, gör om till js objekt
+let parseObject = JSON.parse(jsonSträng);
+console.log(parseObject);
+ */
+
+//Fetch
+//GET
+//Grundläggande syntax för att hämta information med funktionen fetch
+/* fetch('https://avancera.app/cities')
+    .then((response) => {
+        //Vi vill arbeta med json och vi vill kika så att responsen
+        //godkänner detta
+        return response.json();
+    })
+    //Här hanterar vi informationen/datan som kommer från servern
+    .then((data) => {
+        //I vårt fall nedan vill vi bara denna gång göra en loggning av det
+        console.log(data);
+    })
+    //Här hanterar vi fel, denna gång endast en loggning
+    .catch((error) => {
+        console.log(error);
+    });
+ */
+
+//Steg 1. Vi använder en listener för att bedöma om sidan är laddad
+/* document.addEventListener('DOMContentLoaded', function () {
+    //Hämta in vår div för att sedan använda denna till att rendera ut
+    //alla städer från servern
+    const cityList = document.getElementById('city-list');
+
+    //Steg 2. Göra en GET förfrågan med fetch
+    fetch('https://avancera.app/cities')
+        .then((response) => {
+            //Steg 3. Kontrollerar om svarskoden/statusen är OK
+            if (!response.ok) {
+                throw new Error('Nätverkssvaret var inte ok');
+            }
+            //Steg 4. Om responsen är ok så omvandlar vi svaret till JSON format
+            return response.json();
+        })
+        .then((data) => {
+            //Steg 5. Här hanterar vi JSON svaret
+            //Steg 6. Vi använder metoden map() och skapar ett HTML element för varje stad
+            const cities = data.map((city) => {
+                return `<li>${city.name}, ${city.population}</li>`;
+            });
+            console.log(data);
+            //Steg 7. Lägger till de skapade HTML elementen i CityList
+            //den som innerHTML
+            cityList.innerHTML = cities.join(''); //Slår samman arrayen till en sträng och sätter
+        })
+        .catch((error) => {
+            //Steg 8. Vi arbetar med catch och error för att logga/upptäcka eventuella
+            //fel som uppstått vid inhämtningen
+            console.log('Hämtningsfel:', error);
+        });
+});
+
+ */
+//Här hämtar vi en json lokalt och ej från en server
+
+//Steg 1. Vi använder en listener för att bedöma om sidan är laddad
+/* document.addEventListener('DOMContentLoaded', function () {
+    //Hämta in vår div för att sedan använda denna till att rendera ut
+    //alla städer från servern
+    const cityList = document.getElementById('city-list');
+
+    //Steg 2. Göra en GET förfrågan med fetch
+    fetch('data/jsoniarray.json')
+        .then((response) => {
+            //Steg 3. Kontrollerar om svarskoden/statusen är OK
+            if (!response.ok) {
+                throw new Error('Nätverkssvaret var inte ok');
+            }
+            //Steg 4. Om responsen är ok så omvandlar vi svaret till JSON format
+            return response.json();
+        })
+        .then((data) => {
+            //Steg 5. Här hanterar vi JSON svaret
+            //Steg 6. Vi använder metoden map() och skapar ett HTML element för varje stad
+            const cities = data.map((city) => {
+                return `<li>${city.name}, ${city.age}</li>`;
+            });
+            console.log(data);
+            //Steg 7. Lägger till de skapade HTML elementen i CityList
+            //den som innerHTML
+            cityList.innerHTML = cities.join(''); //Slår samman arrayen till en sträng och sätter
+        })
+        .catch((error) => {
+            //Steg 8. Vi arbetar med catch och error för att logga/upptäcka eventuella
+            //fel som uppstått vid inhämtningen
+            console.log('Hämtningsfel:', error);
+        });
+});
+ */
