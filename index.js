@@ -494,7 +494,7 @@ console.log(o.b.d)
 //och funktioner lagrar kod
 //Dom är till för att utföra uppgifter åt oss
 
-const firstName = 'Richard';
+const firstName = 'Richard'
 
 //Funktionsdeklaration är global kallas global scope, den nås överallt inom er kod i er fil
 // syntax function valfritt namn () {koden}
@@ -764,40 +764,39 @@ console.log(parseObject);
  */
 
 //Steg 1. Vi använder en listener för att bedöma om sidan är laddad
-/* document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
     //Hämta in vår div för att sedan använda denna till att rendera ut
     //alla städer från servern
-    const cityList = document.getElementById('city-list');
+    const cityList = document.getElementById('city-list')
 
     //Steg 2. Göra en GET förfrågan med fetch
     fetch('https://avancera.app/cities')
         .then((response) => {
             //Steg 3. Kontrollerar om svarskoden/statusen är OK
             if (!response.ok) {
-                throw new Error('Nätverkssvaret var inte ok');
+                throw new Error('Nätverkssvaret var inte ok')
             }
             //Steg 4. Om responsen är ok så omvandlar vi svaret till JSON format
-            return response.json();
+            return response.json()
         })
         .then((data) => {
             //Steg 5. Här hanterar vi JSON svaret
             //Steg 6. Vi använder metoden map() och skapar ett HTML element för varje stad
             const cities = data.map((city) => {
-                return `<li>${city.name}, ${city.population}</li>`;
-            });
-            console.log(data);
+                return `<li>${city.name}, ${city.population}</li>`
+            })
+            console.log(data)
             //Steg 7. Lägger till de skapade HTML elementen i CityList
             //den som innerHTML
-            cityList.innerHTML = cities.join(''); //Slår samman arrayen till en sträng och sätter
+            cityList.innerHTML = cities.join('') //Slår samman arrayen till en sträng och sätter
         })
         .catch((error) => {
             //Steg 8. Vi arbetar med catch och error för att logga/upptäcka eventuella
             //fel som uppstått vid inhämtningen
-            console.log('Hämtningsfel:', error);
-        });
-});
+            console.log('Hämtningsfel:', error)
+        })
+})
 
- */
 //Här hämtar vi en json lokalt och ej från en server
 
 //Steg 1. Vi använder en listener för att bedöma om sidan är laddad
@@ -834,3 +833,73 @@ console.log(parseObject);
         });
 });
  */
+
+//Vad är header?
+/* I JavaScript, när du gör en "fetch" förfrågan, talar "header" om de extra uppgifter som du kan skicka tillsammans med din förfrågan till en webbserver. Dessa uppgifter är vanligtvis nyckel-värde-par som ger information om förfrågan, såsom vilken typ av data du förväntar dig tillbaka, eller vilka behörigheter du har att göra förfrågan.
+
+Enkelt uttryckt fungerar "header" som en sorts meddelande till webbservern. Precis som när du skickar ett brev och har en avsändaradress och mottagaradress, så innehåller "header" information om din förfrågan till servern och hur svaret bör formateras.
+
+Exempel på en header i en fetch-förfrågan är att ange vilken typ av data du vill ha tillbaka (till exempel JSON eller HTML), eller att inkludera ett autentiserings-token om du behöver bevisa att du har behörighet att göra förfrågan. */
+
+//Vad är body?
+/* I samband med en HTTP-förfrågan, såsom när du använder fetch i JavaScript, refererar "body" till den del av förfrågan som innehåller den faktiska datan du skickar till webbservern. Body är i princip den information eller de data som du vill skicka till servern som en del av din förfrågan, till exempel när du skickar data till en webbserver för att skapa eller uppdatera information.
+
+Body kan innehålla olika typer av data beroende på vilken typ av förfrågan du gör. Här är några vanliga exempel:
+
+Textdata: Du kan inkludera vanlig text som strängar i body. Till exempel, om du skickar ett meddelande till en chattapplikation, kan meddelandet vara i body.
+JSON-data: Om du skickar data i JSON-format (JavaScript Object Notation) till servern, skulle JSON-data vara i body. Detta är vanligt när du skickar data till API:er.
+Formulärdata: Om du skickar data från ett HTML-formulär till servern, skulle data från formuläret vara i body */
+
+//Fetch och Post med ett webbformulär
+//Är sidan laddad? vad ska vi nu göra?
+document.addEventListener('DOMContentLoaded', function () {
+    //Hämtar formuläret och lägger det i en variabel
+    const cityForm = document.getElementById('city-form')
+
+    //steg 2. Lyssnar på formulärets inlämning
+    cityForm.addEventListener('submit', function (event) {
+        event.preventDefault()
+    })
+
+    //Steg 3. För att kunna ta in informationen så behöver vi arbeta med varje input
+    //Det vi gör är att vi ber javascript spara elementen i variabler som vi sedan arbetar med
+    const nameInput = document.getElementById('name')
+    const populationInput = document.getElementById('population')
+
+    //Steg 4.Vi tar alla värden som vi får in via inputs och sparar/lägger undan dessa
+    //i ett javascript objekt som vi sedan arbetar med i vår fetch
+    const cityData = {
+        name: nameInput.value,
+        population: parseInt(populationInput.value) //konverterar till heltal
+        //population: Number(populationInput.value) //konverterar till heltal
+    }
+
+    //Steg 5. Gör en fetch och tar in alla värden ovanför och skickar in det till vår cities databas
+    fetch('https://avancera.app/cities/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        //Nedan hämtar vi in hela Javascript objektet vi skapade ovan (cityData)
+        body: JSON.stringify(cityData)
+    })
+        //Här gör vi våra promises
+        .then((response) => {
+            //Kontrollera om svaret är ok?
+            if (!response.ok) {
+                throw new Error('Nätverkssvaret är ej ok')
+            }
+            return response.json()
+        })
+        .then((data) => {
+            //Hantera svaret från POST förfrågan
+            console.log('POST förfrågan lyckades', data)
+            //Visa datan elle staden i listan
+            const cityItem = document.createElement('li')
+            cityItem.textContent = `${data.name}, ${data.population}`
+        })
+        .catch((error) => {
+            //Hantera eventuell fel som uppstått under vår POST förfrågan
+            console.log('POST-förfrågan misslyckades', error)
+        })
+})

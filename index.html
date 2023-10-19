@@ -19,6 +19,18 @@
         <section class="title">
             <h1 class="ml3">Native Javascript</h1>
         </section>
+
+        <!-- Formulär som skickar in information till vår cities databas med fetch och post -->
+        <h1>Lägg till stad</h1>
+        <!-- Formulär som tar emot informationen -->
+        <form id="city-form">
+            <label for="name">Stadens namn:</label>
+            <input type="text" id="name" name="name" required />
+            <label for="population">Hur många bor här?:</label>
+            <input type="number" id="population" name="population" required />
+            <button type="submit">Lägg till stad</button>
+        </form>
+
         <!-- Gör ett element som får informationen från JS filen, våra städer -->
         <div id="city-list"></div>
         <script
