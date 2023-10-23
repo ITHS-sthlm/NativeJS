@@ -1,0 +1,67 @@
+body {
+    margin-top: 20vh;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: black;
+}
+#main-heading {
+    color: white;
+}
+
+.container-eventdemo {
+    display: flex;
+    justify-content: center;
+    margin-top: 20vh;
+}
+
+.grandparent {
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    width: 400px;
+    background-color: white;
+    align-items: center;
+}
+
+.parent {
+    display: flex;
+    justify-content: center;
+    height: 250px;
+    width: 250px;
+    background-color: #5e205a;
+    align-items: center;
+}
+
+.child {
+    height: 100px;
+    width: 100px;
+    background-color: #ff00b7;
+}
+
+.submit {
+    background-color: #08d;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+    margin-top: 38px;
+    outline: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.submit:active {
+    background-color: #06b;
+}
+
+#elementToChangeColor {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer; /* Ändrar pekaren till en hand när musen sveper över elementet */
+  }
