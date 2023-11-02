@@ -835,7 +835,77 @@ console.log(parseObject);
 });
  */
 
+//Async & Await
+//Nedan sker synkront
+console.log(1);
+console.log(2);
+console.log(3);
+console.log(4);
 
+//Det är inte samma som fetch
+/*
+1. Läsbarhet: Async/await gör din kod mer läsbar och "linjär"
+Istället för att kedja flera .then() anrop så kan vi använda await för at vänta på resultatet
+(vi vill att alla data ska visas samtidigt) i sekventiell stil och asynkront.
 
+2. Felhantering bättre
+Med async/await kan vi använda try and catch för att fånga upp "problem"
 
+Anledningen främst till att async finns är för att kunna hämta data utan att ge
+avbrott på sidladdningen.
+ */
 
+/* async function fetchData() {
+    //Först försöker vi göra ett anrop med try
+    try {
+        const response = await fetch('https://avancera.app/cities');
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        //Om ej ovan går igenom då vill vi få svar på varför med catch metoden
+        console.error('Något gick fel:', error);
+    }
+}
+
+fetchData();
+ */
+
+//Axios
+/*
+Fetch är en inbyggd webb-api hanterare i moderna webbläsare, medan axios är ett
+tredjepartsbibliotek som kan användas både i webbläsaren och på servrar (node.js)
+Den innebär att ni kan få en mer enhetlig kodbas samt fungerar både på klient respektive
+serversidan
+Kort och gott så är axios en HTTP hanterare och den hjälper oss att med kortare
+kod göra GET, POST, DELETE och PUT osv
+
+För att använda:
+Installera med npm install axios
+
+Importera det i vårt projekt med CDN
+*/
+
+/* syntax för GET med axios */
+/* const getCity = async () => {
+    try {
+        const response = await axios.get('https://avancera.app/cities');
+        const data = response.data;
+        console.log(data);
+    } catch (error) {
+        console.error('Något gick fel:', error);
+    }
+};
+
+getCity();
+ */
+
+//Sekventiellt anrop av flera adresser med async och axios
+async function f() {
+    console.log(await axios.get('https://avancera.app/cities'));
+    console.log(await axios.get('https://avancera.app/cities'));
+    console.log(await axios.get('https://avancera.app/cities'));
+}
+
+f();
+
+console.log('Denna loggen kommer sist och synkront');
