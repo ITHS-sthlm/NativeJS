@@ -7,7 +7,7 @@ body {
     background-color: black;
 }
 #main-heading {
-    color: white;
+    color: yellow;
 }
 
 .container-eventdemo {
@@ -64,4 +64,4 @@ body {
     color: #fff;
     padding: 10px;
     cursor: pointer; /* Ändrar pekaren till en hand när musen sveper över elementet */
-  }
+}

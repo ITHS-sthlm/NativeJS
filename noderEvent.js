@@ -22,7 +22,7 @@ vart användaren har en benägenhet att fokusera på, på websidan*/
 /* Vill ladda in innehåll (noder) när sidan har laddats klart */
 
 //6. Hantera data
-/* Vi kanske har et formulär där användaren skriver in något särskilt och vi vill
+/* Vi kanske har ett formulär där användaren skriver in något särskilt och vi vill
 agera utefter dom förutsättningarna */
 
 //7. Animering
@@ -31,69 +31,59 @@ agera utefter dom förutsättningarna */
 //DOM Manipulation
 //Vi har 5st metoder nå våra noder på
 
-//1.
-//document.getElementById(går efter element som har unika id)
-/* const title = document.getElementById('main-heading');
-console.log(title); */
+/* //1 getelementbyid
+const title = document.getElementById('main-heading');
+console.log(title);
 
-//2.
-//document.getElementsByTagName("array-like" med element)
-/* const listItem = document.getElementsByTagName('li');
-console.log(listItem); */
+//2 getelementsbytagname (array liknande)
+const listItem1 = document.getElementsByTagName('li');
+console.log(listItem1);
 
-//3.
-//document.getElementsByClassName("array-like" med element)
-/* const listItem = document.getElementsByClassName('list-group-item');
-console.log(listItem); */
+//3 classname (array liknande)
+const listItem2 = document.getElementsByClassName('list-group-item');
+console.log(listItem2);
 
-//4.
-//document.querySelector("array-like" med element, väljer ut första item på listan)
-/* const container = document.querySelector('div');
-console.log(container); */
-
-//4.
-//document.querySelectorAll(Visar endast element och är inom en array)
-/* const container = document.querySelectorAll('div');
+//4 queryselector (array liknande men väljer ut första item på listan)
+const container = document.querySelector('li');
 console.log(container);
- */
+
+//4 queryselector (array liknande men väljer ut första item på listan)
+const container2 = document.querySelectorAll('li');
+console.log(container2); */
 
 //DOM Styling
-/* const title = document.querySelector('#main-heading');
-
-//Inline styling med JS, går endast med ett element i taget
+const title = document.querySelector('#main-heading');
 title.style.color = 'blue';
+
+//Loopa igenom noder och styla om
+const listItems = document.querySelectorAll('.list-group-item');
+
+/* listItems.style.fontSize = '2rem';
  */
 
-//Efterssom vissa metoder/funktioner är array-like så kan vi loopa
-//igenom och styla noder
-
-/* const listItems = document.querySelectorAll('.list-group-item'); */
-
-//Går ej
-//listItems.style.fontSize = '2rem';
-
-//Vi kör en for loop som går igenom hela "arrayen" och gör ändringen på varje item
-/* for (let i = 0; i < listItems.length; i++) {
+//Vi kör en for loop för att gå igenom hela "arrayen" och gör ändringen på varje item
+for (let i = 0; i < listItems.length; i++) {
     listItems[i].style.fontSize = '2rem';
-} */
+}
 
-//Skapa element, tänk på följande: 1. välj ut elementet, 2. skapa ett elemwnt med create 3. använda det med append
-//Väljer först ut ul och li från vårt dokument
+//Skapa element, tänk på följande: 1. välj ut elementet, 2. skapa ett elemnt med create 3. använda det med append
+//Väljer ut
 /* const ul = document.querySelector('ul');
 const li = document.createElement('li');
 
-ul.append(li); */
+ul.append(li);
+ */
+//Väljer först ut ul och li från vårt dokument
 
 //Modifiera text
 /* li.innerText = 'Hejsan';
- */
-//Om vi nu vill styla vårt nya listobjekt med samma styling som bootstrap orginalet
-//så kan vi arbeta med attributet
-/* li.setAttribute('class', 'list-group-item'); */
+
+//Lägg till ett attribut "setAttribute"
+li.setAttribute('class', 'list-group-item');
 
 //Ta bort attributet
-/* li.removeAttribute('class') */
-
+li.removeAttribute('class');
+ */
 //DOM Traversing
 //Parent node
 /* const ul = document.querySelector('ul'); */
@@ -101,13 +91,11 @@ ul.append(li); */
 console.log(ul.parentElement); */
 
 //Child nodes
-/* console.log(ul.childNodes);
-console.log(ul.children); */
-
-//Demonstrerar med färg vilken nod som jag vill ändra bakgrundsfärg på
-/* console.log(ul.childNodes);
-ul.childNodes[9].style.backgroundColor = 'red';
+/*
+console.log(ul.childNodes);
+ul.childNodes[3].style.color = 'red';
  */
+//Demonstrerar med färg vilken nod som jag vill ändra bakgrundsfärg på
 
 //Events
 //Varför?
@@ -142,60 +130,51 @@ Genom att lyssna på händelser som klick eller muspekaren över kan du anpassa 
 //6. Spel
 /* Utmärkt för att skapa interaktiva spel */
 
-//addEventListener
-/* const grandParent = document.querySelector('.grandparent');
+//addeventListener
+//Plocka ut referenser, dvs komma åt noderna och lägga dessa i variabler
+
+const grandParent = document.querySelector('.grandparent');
 const parent = document.querySelector('.parent');
 const child = document.querySelector('.child');
- */
-//Loggar ut eventet som sker vid click inom diven som heter grandparent
-/* grandParent.addEventListener('click', (e) => {
-    console.log(e);
-}); */
-//Loggar ut eventet som sker vid click inom diven som heter grandparent
+
+//Loggar ut eventet som sker vid klick inom div som heter grandparent
 /* grandParent.addEventListener('click', (e) => {
     console.log(e.target);
 }); */
 
-//vid click i grandParent så kallar vi på en funktion som heter bg
+//Exempel fär vi ändrar bakgrundsfärg vid klick
 /* grandParent.addEventListener('click', bg);
-//bg låter oss styla bakgrunden till annan bakgrundsfärg
+
 function bg() {
     child.style.backgroundColor = 'pink';
-} */
+}
+ */
 
-//En global lyssnare utan elementobjekt
-/* addEventListener('click', onKeyDown);
- */ //Exempelfunktion med onKeyDown
-/* function onKeyDown() {
-    console.log('En knapp har tryckts ned');
+//en global lyssnare som gör något för oss
+/* addEventListener('scroll', onKeyDown);
+
+function onKeyDown() {
+    console.log('en knapp har tryckts');
     child.style.backgroundColor = 'pink';
 }
  */
 
-/* function alertBtn() {
-    alert('Hejsan svejsan');
-}
- */
-
+//Mouseover event
 /* const element = document.getElementById('elementToChangeColor');
- */
-//Lägger vi till en lyssnare för mouseover
-/* element.addEventListener('mouseover', function () {
-    //Ändra färgen när musen sveper över elementet
-    element.style.backgroundColor = '#e74c3c';
+
+element.addEventListener('mouseover', function () {
+    element.style.backgroundColor = 'blue';
+});
+
+element.addEventListener('mouseout', function () {
+    element.style.backgroundColor = 'red';
 });
  */
-//Lägger vi till en lyssnare för mouseout
-/* element.addEventListener('mouseout', function () {
-    //Ändra färgen när musen sveper över elementet
-    element.style.backgroundColor = '#000';
-}); */
 
+//Vi gör en global lyssnare som identifierear vart muspekaren befinner sig
 
-//Vanlig metod (global) för att kunna "lyssna" men också se vart besökarna orienterar sig någonstans
-//och då kan vi även analysera detta, varför osv?
 /* addEventListener('mousemove', onMouseMove);
+
 function onMouseMove(event) {
-    console.log(event.clientX, event.clientY); // Koordinat
-}
- */
+    console.log(event.clientX, event.clientY); //Koordinaterna
+} */
